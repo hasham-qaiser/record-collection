@@ -19,9 +19,14 @@ export default function Home({ records }: PageProps) {
       <h1 className={styles.h1}>My Record Collection</h1>
       <h3 className={styles.h3}>
         Data provided by
-        <Link className={styles.Link} href={"https://www.discogs.com/"}>
+        <a
+          className={styles.href}
+          href={"https://www.discogs.com/"}
+          target="blank"
+          rel="noreferrer"
+        >
           Discogs
-        </Link>
+        </a>
       </h3>
       <main className={styles.main}>
         <div className={styles.grid}>
@@ -29,7 +34,7 @@ export default function Home({ records }: PageProps) {
             return (
               <a key={i} className={styles.card} href={`/${record.id}`}>
                 <h2>
-                  {record.basic_information.title} -{" "}
+                  {record.basic_information.title} -{""}
                   {record.basic_information.artists[0].name}
                 </h2>
                 <div className={styles.imageContainer}>
