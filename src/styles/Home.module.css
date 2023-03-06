@@ -3,8 +3,25 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  padding: 4rem;
   min-height: 100vh;
+}
+
+.h1 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+}
+
+.h3 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.Link {
+  color: rgb(244, 177, 82);
 }
 
 .description {

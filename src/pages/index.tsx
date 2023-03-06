@@ -1,5 +1,7 @@
 import { GetStaticProps } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import Head from "next/head";
 import DiscogRecord from "../../models/DiscogRecord";
 import retrieveRecords from "../../utils/retrieveRecords";
 import styles from "../styles/Home.module.css";
@@ -11,6 +13,16 @@ interface PageProps {
 export default function Home({ records }: PageProps) {
   return (
     <div>
+      <Head>
+        <title>My Record Collection - Hasham Qaiser</title>
+      </Head>
+      <h1 className={styles.h1}>My Record Collection</h1>
+      <h3 className={styles.h3}>
+        Data provided by
+        <Link className={styles.Link} href={"https://www.discogs.com/"}>
+          Discogs
+        </Link>
+      </h3>
       <main className={styles.main}>
         <div className={styles.grid}>
           {records.map((record, i) => {
