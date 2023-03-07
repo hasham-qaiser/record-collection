@@ -33,10 +33,6 @@ export default function Home({ records }: PageProps) {
           {records.map((record, i) => {
             return (
               <a key={i} className={styles.card} href={`/${record.id}`}>
-                <h2>
-                  {record.basic_information.title} -{""}
-                  {record.basic_information.artists[0].name}
-                </h2>
                 <div className={styles.imageContainer}>
                   <Image
                     src={record.basic_information.cover_image}
