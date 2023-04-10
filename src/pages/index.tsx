@@ -5,6 +5,7 @@ import Head from "next/head";
 import DiscogRecord from "../../models/DiscogRecord";
 import retrieveRecords from "../../utils/retrieveRecords";
 import styles from "../styles/Home.module.css";
+import { motion } from "framer-motion";
 
 interface PageProps {
   records: DiscogRecord[];
@@ -16,8 +17,10 @@ export default function Home({ records }: PageProps) {
       <Head>
         <title>My Record Collection - Hasham Qaiser</title>
       </Head>
-      <h1 className={styles.h1}>My Record Collection</h1>
-      <h3 className={styles.h3}>
+      <h1 className="items-center flex flex-col bg-black">
+        My Record Collection
+      </h1>
+      <h3 className="items-center flex flex-col bg-black">
         Data provided by
         <a
           className={styles.href}
@@ -28,11 +31,16 @@ export default function Home({ records }: PageProps) {
           Discogs
         </a>
       </h3>
-      <main className={styles.main}>
-        <div className={styles.grid}>
+      <main className="items-center flex flex-col bg-black">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="grid gap-9 grid-cols-4 grid-rows-4"
+        >
           {records.map((record, i) => {
             return (
-              <a key={i} className={styles.card} href={`/${record.id}`}>
+              <a key={i} className="card w-50" href={`/${record.id}`}>
                 <div className={styles.imageContainer}>
                   <Image
                     src={record.basic_information.cover_image}
@@ -44,7 +52,7 @@ export default function Home({ records }: PageProps) {
               </a>
             );
           })}
-        </div>
+        </motion.div>
       </main>
     </div>
   );
