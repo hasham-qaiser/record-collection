@@ -1,6 +1,5 @@
 import { GetStaticProps } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import Head from "next/head";
 import DiscogRecord from "../../models/DiscogRecord";
 import retrieveRecords from "../../utils/retrieveRecords";
@@ -17,10 +16,10 @@ export default function Home({ records }: PageProps) {
       <Head>
         <title>My Record Collection - Hasham Qaiser</title>
       </Head>
-      <h1 className="items-center flex flex-col bg-black">
+      <h1 className="items-center flex flex-col text-3xl pt-2 font-sans text-white">
         My Record Collection
       </h1>
-      <h3 className="items-center flex flex-col bg-black">
+      <h3 className="items-center flex flex-col text-white ">
         Data provided by
         <a
           className={styles.href}
@@ -31,24 +30,28 @@ export default function Home({ records }: PageProps) {
           Discogs
         </a>
       </h3>
-      <main className="items-center flex flex-col bg-black">
+      <main className="items-center flex flex-col pb-2">
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
+          initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.7 }}
           className="grid gap-9 grid-cols-4 grid-rows-4"
         >
           {records.map((record, i) => {
             return (
               <a key={i} className="card w-50" href={`/${record.id}`}>
-                <div className={styles.imageContainer}>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className={styles.imageContainer}
+                >
                   <Image
                     src={record.basic_information.cover_image}
                     alt={record.basic_information.title}
                     fill
                     priority
                   />
-                </div>
+                </motion.div>
               </a>
             );
           })}
