@@ -1,5 +1,14 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Record Collection - Hasham Qaiser
+
+My personal collection of records, viewable albums are linked to various streaming platforms.
+
+## Coming soon:
+
+Variety of other streaming platforms i.e: spotify, youtube and amazon music.
+a searchbar/filter to seek a specific album or genre of music.
+
 ## Getting Started
 
 First, run the development server:

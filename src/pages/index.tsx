@@ -19,7 +19,7 @@ export default function Home({ records }: PageProps) {
       <h1 className="items-center flex flex-col text-3xl pt-2 font-sans text-white">
         My Record Collection
       </h1>
-      <h3 className="items-center flex flex-col text-white ">
+      <h3 className="items-center flex flex-col text-white">
         Data provided by
         <a
           className={styles.href}
