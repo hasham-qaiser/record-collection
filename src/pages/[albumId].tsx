@@ -11,34 +11,35 @@ interface PageProps {
 }
 const AlbumPage = ({ album, appleMusicId }: PageProps) => {
   return (
-    <div>
+    <div className="bg-gradient-to-r from-indigo-200 to-stone-700 h-screen">
       <main className="items-center flex flex-col pb-2">
         <div className="card w-50 pb-6">
-          <h2 className="text-3xl pb-3">
+          <h2 className="text-3xl text-white pb-3">
             {album.basic_information.title} -{" "}
             {album.basic_information.artists[0].name}
           </h2>
 
-          <div className={styles.imageContainer}>
+          <div className="h-48 w-48 relative">
             <Image
+              className="rounded-md place-content-center"
               src={album.basic_information.cover_image}
               alt={album.basic_information.title}
-              fill
+              fill={true}
               priority
             />
           </div>
-          <h3 className="text-base text-center">
+          <h3 className="text-base text-center text-white pt-3">
             Genre:
             {album.basic_information.genres}
           </h3>
-          <h3 className="text-base text-center">
+          <h3 className="text-base text-center text-white">
             Year:
             {album.basic_information.year}
           </h3>
         </div>
-        <div>
+        <div className="pt-2">
           <iframe
-            className="card"
+            className=""
             allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
             frameBorder="0"
             height="450"

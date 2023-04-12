@@ -12,14 +12,14 @@ interface PageProps {
 
 export default function Home({ records }: PageProps) {
   return (
-    <div>
+    <div className="bg-gradient-to-r from-indigo-200 to-stone-700">
       <Head>
         <title>My Record Collection - Hasham Qaiser</title>
       </Head>
-      <h1 className="items-center flex flex-col text-3xl pt-2 font-sans text-white">
+      <h1 className="items-center flex flex-col text-4xl pt-2 font-sans text-white">
         My Record Collection
       </h1>
-      <h3 className="items-center flex flex-col text-white">
+      <h3 className="items-center flex flex-col text-xl text-white">
         Data provided by
         <a
           className={styles.href}
@@ -43,12 +43,13 @@ export default function Home({ records }: PageProps) {
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className={styles.imageContainer}
+                  className="h-48 w-48 relative"
                 >
                   <Image
+                    className="rounded-md"
                     src={record.basic_information.cover_image}
                     alt={record.basic_information.title}
-                    fill
+                    fill={true}
                     priority
                   />
                 </motion.div>
