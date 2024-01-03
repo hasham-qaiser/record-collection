@@ -4,6 +4,14 @@ import DiscogRecord from "../../models/DiscogRecord";
 import retrieveRecords from "../../utils/retrieveRecords";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface PageProps {
   album: DiscogRecord;
@@ -13,28 +21,36 @@ const AlbumPage = ({ album, appleMusicId }: PageProps) => {
   return (
     <div className="bg-white h-screen">
       <main className="pt-5 items-center flex flex-col">
-        <h2 className="text-3xl text-black">
-          {album.basic_information.title} -{" "}
-          {album.basic_information.artists[0].name}
-        </h2>
-        <div className="card w-48 h-48">
-          <Image
-            className="h-50 w-50 pt-5 "
-            src={album.basic_information.cover_image}
-            alt={album.basic_information.title}
-            fill={true}
-            priority
-          />
-          <h3 className="text-base text-center text-white pt-3">
-            Genre:
-            {album.basic_information.genres}
-          </h3>
-          <h3 className="text-base text-center text-white">
-            Year:
-            {album.basic_information.year}
-          </h3>
+        <div>
+          <Card>
+            <CardContent>
+              <CardTitle>
+                <h2 className="mt-2">
+                  {album.basic_information.title} -{" "}
+                  {album.basic_information.artists[0].name}
+                </h2>
+              </CardTitle>
+              <div className="flex flex-col items-center mt-2">
+                <Image
+                  className="flex flex-col"
+                  width={300}
+                  height={300}
+                  src={album.basic_information.cover_image}
+                  alt="album art"
+                  priority
+                />
+              </div>
+              <CardDescription>
+                <h2 className="flex flex-col text-center mt-2">
+                  {album.basic_information.year}
+                  <br></br>
+                  {album.basic_information.genres}
+                </h2>
+              </CardDescription>
+            </CardContent>
+          </Card>
         </div>
-        <div className="pt-8">
+        <div className="mt-11">
           <iframe
             allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
             frameBorder="0"

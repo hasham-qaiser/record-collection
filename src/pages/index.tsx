@@ -5,6 +5,8 @@ import DiscogRecord from "../../models/DiscogRecord";
 import retrieveRecords from "../../utils/retrieveRecords";
 import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
+import { HoverCard } from "@/components/ui/hover-card";
+import { HoverCardTrigger } from "@radix-ui/react-hover-card";
 
 interface PageProps {
   records: DiscogRecord[];
@@ -16,7 +18,7 @@ export default function Home({ records }: PageProps) {
       <Head>
         <title>My Record Collection - Hasham Qaiser</title>
       </Head>
-      <h1 className="items-center flex flex-col text-4xl pt-2 font-sans text-black">
+      <h1 className="items-center flex flex-col text-4xl pt-2  text-black">
         My Record Collection
       </h1>
       <h3
