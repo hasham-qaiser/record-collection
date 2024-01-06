@@ -5,7 +5,7 @@ import DiscogRecord from "../../models/DiscogRecord";
 import retrieveRecords from "../../utils/retrieveRecords";
 import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
-import { HoverCard } from "@/components/ui/hover-card";
+import { HoverCard, HoverCardContent } from "@/components/ui/hover-card";
 import { HoverCardTrigger } from "@radix-ui/react-hover-card";
 
 interface PageProps {
@@ -45,19 +45,28 @@ export default function Home({ records }: PageProps) {
           {records.map((record, i) => {
             return (
               <a key={i} className="card w-50" href={`/${record.id}`}>
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="h-48 w-48 relative"
-                >
-                  <Image
-                    className="rounded-md"
-                    src={record.basic_information.cover_image}
-                    alt={record.basic_information.title}
-                    fill={true}
-                    priority
-                  />
-                </motion.div>
+                <div className="h-48 w-48 relative">
+                  <HoverCard>
+                    <HoverCardTrigger>
+                      <Image
+                        className="rounded-md"
+                        src={record.basic_information.cover_image}
+                        alt="album cover"
+                        width={200}
+                        height={200}
+                        priority
+                      />
+
+                      <HoverCardContent className="w-50">
+                        <h2>
+                          {record.basic_information.genres}
+                          <br></br>
+                          {record.basic_information.year}
+                        </h2>
+                      </HoverCardContent>
+                    </HoverCardTrigger>
+                  </HoverCard>
+                </div>
               </a>
             );
           })}
