@@ -57,8 +57,10 @@ export default function Home({ records }: PageProps) {
                         priority
                       />
 
-                      <HoverCardContent className="w-50">
-                        <h2>
+                      <HoverCardContent className="w-80">
+                        <h2 className="space-y-1">
+                          {record.basic_information.title}
+                          <br></br>
                           {record.basic_information.genres}
                           <br></br>
                           {record.basic_information.year}
