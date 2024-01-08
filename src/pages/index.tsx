@@ -14,7 +14,7 @@ interface PageProps {
 
 export default function Home({ records }: PageProps) {
   return (
-    <div className="bg-white">
+    <div className="grainy">
       <Head>
         <title>My Record Collection - Hasham Qaiser</title>
       </Head>
@@ -59,7 +59,8 @@ export default function Home({ records }: PageProps) {
 
                       <HoverCardContent className="w-80">
                         <h2 className="space-y-1">
-                          {record.basic_information.title}
+                          {record.basic_information.title} -{" "}
+                          {record.basic_information.artists[0].name}
                           <br></br>
                           {record.basic_information.genres}
                           <br></br>
