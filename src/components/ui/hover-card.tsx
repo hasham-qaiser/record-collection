@@ -52,7 +52,7 @@ const HoverCardContent: React.FC<HoverCardContentProps> = ({
       <h2 className="font-bold">
         {title} - {artists[0].name}
       </h2>
-      <h2 className="font-normal italic">
+      <h2 className="font-normal italic text-[#f7ab0a]">
         {genres} - <br></br>
         {year}
       </h2>
@@ -60,7 +60,6 @@ const HoverCardContent: React.FC<HoverCardContentProps> = ({
         {appleMusicId && (
           <iframe
             allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-            frameBorder="0"
             height="150"
             style={{
               width: "100%",

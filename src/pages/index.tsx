@@ -55,8 +55,8 @@ export default function Home({ records }: PageProps) {
                       />
 
                       <HoverCardContent
-                        className="w-80 rounded-md space-y-1 opacity-90"
-                        album={record} // Pass the record object to HoverCardContent
+                        className="w-80 rounded-md space-y-1 "
+                        album={record}
                       />
                     </HoverCardTrigger>
                   </HoverCard>
