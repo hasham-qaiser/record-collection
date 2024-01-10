@@ -21,10 +21,7 @@ export default function Home({ records }: PageProps) {
       <h1 className="items-center flex flex-col text-4xl pt-2  text-black">
         My Record Collection
       </h1>
-      <h3
-        className="items-center flex flex-col text-xl text-black
-      "
-      >
+      <h3 className="items-center flex flex-col text-xl text-black">
         Powered by:
         <a
           className={styles.href}
@@ -57,17 +54,10 @@ export default function Home({ records }: PageProps) {
                         priority
                       />
 
-                      <HoverCardContent className="w-80 rounded-md space-y-1 opacity-90">
-                        <h2 className="font-bold">
-                          {record.basic_information.title} -{" "}
-                          {record.basic_information.artists[0].name}
-                        </h2>
-                        <h2 className="font-light">
-                          {record.basic_information.genres}
-                          <br></br>
-                          {record.basic_information.year}
-                        </h2>
-                      </HoverCardContent>
+                      <HoverCardContent
+                        className="w-80 rounded-md space-y-1 opacity-90"
+                        album={record} // Pass the record object to HoverCardContent
+                      />
                     </HoverCardTrigger>
                   </HoverCard>
                 </div>
