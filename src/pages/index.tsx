@@ -18,13 +18,13 @@ export default function Home({ records }: PageProps) {
       <Head>
         <title>My Record Collection - Hasham Qaiser</title>
       </Head>
-      <h1 className="items-center flex flex-col text-4xl pt-2  text-black">
+      <h1 className="items-center flex flex-col text-4xl pt-2 font-bold  text-black">
         My Record Collection
       </h1>
       <h3 className="items-center flex flex-col text-xl text-black">
         Powered by:
         <a
-          className={styles.href}
+          className="font-semibold text-[#f7ab0a] pb-4"
           href={"https://www.discogs.com/"}
           target="blank"
           rel="noreferrer"
