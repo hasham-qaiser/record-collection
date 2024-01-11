@@ -37,7 +37,7 @@ export default function Home({ records }: PageProps) {
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7 }}
-          className="grid gap-9 grid-cols-4 grid-rows-4"
+          className="grid gap-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           {records.map((record, i) => {
             return (
