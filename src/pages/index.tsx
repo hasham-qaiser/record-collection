@@ -1,5 +1,8 @@
+import { useState } from "react";
+import React from "react";
 import { GetStaticProps } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Head from "next/head";
 import DiscogRecord from "../../models/DiscogRecord";
 import retrieveRecords from "../../utils/retrieveRecords";
@@ -7,14 +10,48 @@ import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
 import { HoverCard, HoverCardContent } from "@/components/ui/hover-card";
 import { HoverCardTrigger } from "@radix-ui/react-hover-card";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
 interface PageProps {
   records: DiscogRecord[];
 }
 
-export default function Home({ records }: PageProps) {
+const Home = ({ records }: PageProps) => {
+  const perPage = 15;
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(records.length / perPage);
+
+  const handlePageClick = (page: number) => {
+    setCurrentPage(page);
+    // Fetch data for the selected page
+  };
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+    // Fetch data for the previous page
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+    // Fetch data for the next page
+  };
+
+  const startRecordIndex = (currentPage - 1) * perPage;
+  const visibleRecords = records.slice(
+    startRecordIndex,
+    startRecordIndex + perPage
+  );
+
   return (
-    <div className="grainy">
+    <div>
       <Head>
         <title>My Record Collection - Hasham Qaiser</title>
       </Head>
@@ -39,36 +76,62 @@ export default function Home({ records }: PageProps) {
           transition={{ duration: 0.7 }}
           className="grid gap-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
-          {records.map((record, i) => {
+          {visibleRecords.map((record, i) => {
             return (
-              <a key={i} className="card w-50" href={`/${record.id}`}>
-                <div className="h-48 w-48 relative">
-                  <HoverCard>
-                    <HoverCardTrigger>
-                      <Image
-                        className="rounded-md"
-                        src={record.basic_information.cover_image}
-                        alt="album cover"
-                        width={200}
-                        height={200}
-                        priority
-                      />
+              <Link key={i} href={`/${record.id}`}>
+                <div className="card w-50">
+                  <div className="h-48 w-48 relative">
+                    <HoverCard>
+                      <HoverCardTrigger>
+                        <Image
+                          className="rounded-md"
+                          src={record.basic_information.cover_image}
+                          alt={record.basic_information.title}
+                          width={200}
+                          height={200}
+                          priority
+                        />
 
-                      <HoverCardContent
-                        className="w-80 rounded-md space-y-1 "
-                        album={record}
-                      />
-                    </HoverCardTrigger>
-                  </HoverCard>
+                        <HoverCardContent
+                          className="w-80 rounded-md space-y-1 "
+                          album={record}
+                        />
+                      </HoverCardTrigger>
+                    </HoverCard>
+                  </div>
                 </div>
-              </a>
+              </Link>
             );
           })}
         </motion.div>
+        <Pagination className="mt-8" aria-label="Page navigation">
+          <PaginationPrevious
+            onClick={handlePreviousPage}
+            className="hover: cursor-pointer"
+          />
+          <PaginationContent>
+            {Array.from({ length: totalPages }).map((_, index) => (
+              <PaginationLink
+                key={index}
+                onClick={() => handlePageClick(index + 1)}
+                isActive={index + 1 === currentPage}
+                className={`hover:cursor-pointer ${
+                  index + 1 === currentPage ? "font-bold" : ""
+                }`}
+              >
+                {index + 1}
+              </PaginationLink>
+            ))}
+          </PaginationContent>
+          <PaginationNext
+            onClick={handleNextPage}
+            className="hover:cursor-pointer"
+          />
+        </Pagination>
       </main>
     </div>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
@@ -89,3 +152,5 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   }
 };
+
+export default Home;
