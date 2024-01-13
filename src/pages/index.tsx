@@ -6,19 +6,20 @@ import Link from "next/link";
 import Head from "next/head";
 import DiscogRecord from "../../models/DiscogRecord";
 import retrieveRecords from "../../utils/retrieveRecords";
-import styles from "../styles/Home.module.css";
 import { motion } from "framer-motion";
-import { HoverCard, HoverCardContent } from "@/components/ui/hover-card";
-import { HoverCardTrigger } from "@radix-ui/react-hover-card";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface PageProps {
   records: DiscogRecord[];
@@ -55,19 +56,28 @@ const Home = ({ records }: PageProps) => {
       <Head>
         <title>My Record Collection - Hasham Qaiser</title>
       </Head>
-      <h1 className="items-center flex flex-col text-4xl pt-2 font-bold  text-black">
+
+      <div className="items-center flex flex-col">
+        <a href="https://www.hasham.xyz/">
+          <Avatar className="w-20 h-20">
+            <AvatarImage src="/notion.png" />
+            <AvatarFallback>HQ</AvatarFallback>
+          </Avatar>
+        </a>
+      </div>
+      <h1 className="items-center flex flex-col text-4xl pt-2 font-bold  text-primary">
         My Record Collection
       </h1>
-      <h3 className="items-center flex flex-col text-xl text-black">
+      <h3 className="items-center flex flex-col text-xl text-primary">
         Powered by:
-        <a
+        <Link
           className="font-semibold text-[#f7ab0a] pb-4"
           href={"https://www.discogs.com/"}
           target="blank"
           rel="noreferrer"
         >
           Discogs
-        </a>
+        </Link>
       </h3>
       <main className="items-center flex flex-col pb-2">
         <motion.div
@@ -93,7 +103,7 @@ const Home = ({ records }: PageProps) => {
                         />
 
                         <HoverCardContent
-                          className="w-80 rounded-md space-y-1 "
+                          className="w-80 rounded-md space-y-1 text-primary"
                           album={record}
                         />
                       </HoverCardTrigger>
@@ -107,7 +117,7 @@ const Home = ({ records }: PageProps) => {
         <Pagination className="mt-8" aria-label="Page navigation">
           <PaginationPrevious
             onClick={handlePreviousPage}
-            className="hover: cursor-pointer"
+            className="hover:cursor-pointer"
           />
           <PaginationContent>
             {Array.from({ length: totalPages }).map((_, index) => (
