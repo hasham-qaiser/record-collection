@@ -12,6 +12,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { Badge, badgeVariants } from "@/components/ui/badge";
 import {
   Pagination,
   PaginationContent,
@@ -84,7 +85,7 @@ const Home = ({ records }: PageProps) => {
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7 }}
-          className="justify-between mt-16 items-center grid gap-12 grid-cols-1 md:grid-cols-4 md:mt-11 lg:grid-cols-4 xl:grid-cols-4"
+          className="justify-between mt-16 items-center grid gap-12 grid-cols-1 sm:mt-4 md:grid-cols-4 md:mt-11 lg:grid-cols-4 xl:grid-cols-4"
         >
           {visibleRecords.map((record, i) => {
             return (
@@ -114,7 +115,10 @@ const Home = ({ records }: PageProps) => {
             );
           })}
         </motion.div>
-        <Pagination className="fixed bottom-1" aria-label="Page navigation">
+        <Pagination
+          className="fixed bottom-1 mb-1"
+          aria-label="Page navigation"
+        >
           <PaginationPrevious
             onClick={handlePreviousPage}
             className="hover:cursor-pointer"
