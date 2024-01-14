@@ -26,7 +26,7 @@ interface PageProps {
 }
 
 const Home = ({ records }: PageProps) => {
-  const perPage = 15;
+  const perPage = 16;
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(records.length / perPage);
 
@@ -79,12 +79,12 @@ const Home = ({ records }: PageProps) => {
           Discogs
         </Link>
       </h3>
-      <main className="items-center flex flex-col pb-2">
+      <main className="flex flex-col items-center justify-between mt-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7 }}
-          className="grid gap-9 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          className="justify-between mt-16 items-center grid gap-12 grid-cols-1 md:grid-cols-4 md:mt-11 lg:grid-cols-4 xl:grid-cols-4"
         >
           {visibleRecords.map((record, i) => {
             return (
@@ -114,7 +114,7 @@ const Home = ({ records }: PageProps) => {
             );
           })}
         </motion.div>
-        <Pagination className="mt-8" aria-label="Page navigation">
+        <Pagination className="fixed bottom-1" aria-label="Page navigation">
           <PaginationPrevious
             onClick={handlePreviousPage}
             className="hover:cursor-pointer"
