@@ -50,7 +50,7 @@ const HoverCardContent: React.FC<HoverCardContentProps> = ({
         className
       )}
     >
-      <h2 className="font-bold">
+      <h2 className="font-bold text-primary">
         {title} - {artists[0].name}
       </h2>
       <Badge variant="default">{genres}</Badge>
