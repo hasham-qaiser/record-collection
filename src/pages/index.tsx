@@ -57,7 +57,8 @@ const Home = ({ records }: PageProps) => {
       <Head>
         <title>My Record Collection - Hasham Qaiser</title>
       </Head>
-      <div className="flex flex-row justify-end   gap-x-2 print:hidden">
+
+      <div className="flex flex-row justify-end   gap-x-2 print:hidden mr-4 mt-4">
         <ModeToggle />
       </div>
 
