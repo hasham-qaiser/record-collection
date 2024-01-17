@@ -58,7 +58,7 @@ const Home = ({ records }: PageProps) => {
         <title>My Record Collection - Hasham Qaiser</title>
       </Head>
 
-      <div className="flex flex-row justify-end   gap-x-2 print:hidden mr-4 mt-4">
+      <div className=" mx-auto flex flex-row justify-end gap-x-2 mr-4 mt-4">
         <ModeToggle />
       </div>
 
@@ -70,7 +70,7 @@ const Home = ({ records }: PageProps) => {
           </Avatar>
         </a>
       </div>
-      <h1 className="items-center flex flex-col text-4xl pt-2 font-bold  text-primary">
+      <h1 className="text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl text-center font-bold text-primary">
         My Record Collection
       </h1>
       <h3 className="items-center flex flex-col text-xl text-primary">
