@@ -4,6 +4,7 @@ import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import { cn } from "@/lib/utils";
 import DiscogRecord from "../../../models/DiscogRecord";
 import { fetchAppleMusicId } from "../../../utils/fetchAppleMusicId";
+import { Badge } from "./badge";
 
 const { Root, Trigger, Content } = HoverCardPrimitive;
 
@@ -52,10 +53,12 @@ const HoverCardContent: React.FC<HoverCardContentProps> = ({
       <h2 className="font-bold">
         {title} - {artists[0].name}
       </h2>
-      <h2 className="font-normal italic text-[#f7ab0a]">
-        {genres} - <br></br>
-        {year}
-      </h2>
+      <div className="space-x-2 space-y-2">
+        {genres.map((genre, index) => (
+          <Badge key={index}>{genre}</Badge>
+        ))}
+      </div>
+      <h2 className="font-normal italic text-[#f7ab0a]">{year}</h2>
       <div>
         {appleMusicId && (
           <iframe
