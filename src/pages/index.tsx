@@ -12,7 +12,6 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import { Badge, badgeVariants } from "@/components/ui/badge";
 import {
   Pagination,
   PaginationContent,
@@ -21,6 +20,7 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 interface PageProps {
   records: DiscogRecord[];
@@ -58,6 +58,10 @@ const Home = ({ records }: PageProps) => {
         <title>My Record Collection - Hasham Qaiser</title>
       </Head>
 
+      <div className=" mx-auto flex flex-row justify-end gap-x-2 mr-4 mt-4">
+        <ModeToggle />
+      </div>
+
       <div className="items-center flex flex-col">
         <a href="https://www.hasham.xyz/">
           <Avatar className="w-20 h-20">
@@ -66,7 +70,7 @@ const Home = ({ records }: PageProps) => {
           </Avatar>
         </a>
       </div>
-      <h1 className="items-center flex flex-col text-4xl pt-2 font-bold  text-primary">
+      <h1 className="text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl text-center font-bold text-primary">
         My Record Collection
       </h1>
       <h3 className="items-center flex flex-col text-xl text-primary">

@@ -56,9 +56,12 @@ const HoverCardContent: React.FC<HoverCardContentProps> = ({
       </h2>
       <div className="space-x-2 space-y-2">
         {genres.map((genre, index) => (
-          <Badge key={index}>{genre}</Badge>
+          <Badge key={index} variant="default">
+            {genre}
+          </Badge>
         ))}
       </div>
+
       <h2 className="font-normal italic text-[#f7ab0a]">{year}</h2>
       <div>
         {appleMusicId && (
