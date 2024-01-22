@@ -53,7 +53,7 @@ const HoverCardContent: React.FC<HoverCardContentProps> = ({
       <h2 className="font-bold text-primary">
         {title} - {artists[0].name}
       </h2>
-      <div className="flex flex-wrap space-x-2">
+      <div className="space-x-2 space-y-2">
         {genres.map((genre, index) => (
           <Badge key={index} variant="default">
             {genre}
