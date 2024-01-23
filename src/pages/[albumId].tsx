@@ -2,7 +2,6 @@ import { GetServerSideProps } from "next";
 import React from "react";
 import DiscogRecord from "../../models/DiscogRecord";
 import retrieveRecords from "../../utils/retrieveRecords";
-import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import {
   Card,
