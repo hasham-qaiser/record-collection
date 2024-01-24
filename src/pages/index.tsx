@@ -4,6 +4,7 @@ import { GetStaticProps } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import { Github } from "lucide-react";
 import DiscogRecord from "../../models/DiscogRecord";
 import retrieveRecords from "../../utils/retrieveRecords";
 import { motion } from "framer-motion";
@@ -21,6 +22,7 @@ import {
 } from "@/components/ui/pagination";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { ButtonIcon } from "@/components/GithubIcon";
 
 interface PageProps {
   records: DiscogRecord[];
@@ -59,30 +61,15 @@ const Home = ({ records }: PageProps) => {
       </Head>
 
       <div className=" mx-auto flex flex-row justify-end gap-x-2 mr-4 mt-4">
+        <ButtonIcon url="https://github.com/hasham-qaiser/record-collection" />
         <ModeToggle />
       </div>
 
-      <div className="items-center flex flex-col">
-        <a href="https://www.hasham.xyz/">
-          <Avatar className="w-20 h-20">
-            <AvatarImage src="/notion.png" />
-            <AvatarFallback>HQ</AvatarFallback>
-          </Avatar>
-        </a>
-      </div>
-      <h1 className="text-2xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl text-center font-bold text-primary">
+      <h1 className="text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl text-center font-bold text-primary">
         My Record Collection
       </h1>
-      <h3 className="items-center flex flex-col text-xl text-primary">
-        Powered by:
-        <Link
-          className="font-semibold text-[#f7ab0a] pb-4"
-          href={"https://www.discogs.com/"}
-          target="blank"
-          rel="noreferrer"
-        >
-          Discogs
-        </Link>
+      <h3 className="items-center flex flex-col text-lg text-primary">
+        By Hasham Qaiser
       </h3>
       <main className="flex flex-col items-center justify-between mt-4">
         <motion.div
