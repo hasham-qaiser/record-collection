@@ -2,7 +2,6 @@ import React from "react";
 import { Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-// Props typing if you need customization
 interface ButtonIconProps {
   url: string;
   ariaLabel?: string;
