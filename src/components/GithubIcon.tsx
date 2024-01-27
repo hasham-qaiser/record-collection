@@ -14,7 +14,7 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
   return (
     <Button variant="outline" size="icon" aria-label={ariaLabel}>
       <a href={url} target="_blank" rel="noopener noreferrer">
-        <Github className="h-4 w-4" />
+        <Github className="h-4 w-4 hover:button-hover-text" />
       </a>
     </Button>
   );

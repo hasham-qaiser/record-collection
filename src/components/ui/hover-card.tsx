@@ -62,7 +62,9 @@ const HoverCardContent: React.FC<HoverCardContentProps> = ({
         ))}
       </div>
 
-      <h2 className="font-normal italic artist-year-text">{year}</h2>
+      <h2 className="font-normal italic artist-year-text space-x-2 space-y-2">
+        {year}
+      </h2>
       <div>
         {appleMusicId && (
           <iframe
