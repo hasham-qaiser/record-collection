@@ -19,7 +19,7 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
       className="hover:button-hover-text"
     >
       <a href={url} target="_blank" rel="noopener noreferrer">
-        <Github className="h-4 w-4" />
+        <Github className="h-[1.2rem] w-[1.2rem]" />
       </a>
     </Button>
   );
