@@ -12,9 +12,14 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
   ariaLabel = "GitHub",
 }) => {
   return (
-    <Button variant="outline" size="icon" aria-label={ariaLabel}>
+    <Button
+      variant="outline"
+      size="icon"
+      aria-label={ariaLabel}
+      className="hover:button-hover-text"
+    >
       <a href={url} target="_blank" rel="noopener noreferrer">
-        <Github className="h-4 w-4 hover:button-hover-text" />
+        <Github className="h-4 w-4" />
       </a>
     </Button>
   );
