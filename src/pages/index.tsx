@@ -13,6 +13,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { Card } from "@/components/ui/card";
 import {
   Pagination,
   PaginationContent,
@@ -81,27 +82,24 @@ const Home = ({ records }: PageProps) => {
           {visibleRecords.map((record, i) => {
             return (
               <Link key={i} href={`/${record.id}`}>
-                <div className="card w-50">
-                  <div className="h-48 w-48 relative">
-                    <HoverCard>
-                      <HoverCardTrigger>
-                        <Image
-                          className="rounded-md"
-                          src={record.basic_information.cover_image}
-                          alt={record.basic_information.title}
-                          width={200}
-                          height={200}
-                          priority
-                        />
-
-                        <HoverCardContent
-                          className="w-80 rounded-md space-y-1 text-primary"
-                          album={record}
-                        />
-                      </HoverCardTrigger>
-                    </HoverCard>
-                  </div>
-                </div>
+                <HoverCard>
+                  <HoverCardTrigger>
+                    <Card className="w-[250px] h-[250px] flex justify-center items-center">
+                      <Image
+                        className="rounded-md"
+                        src={record.basic_information.cover_image}
+                        alt={record.basic_information.title}
+                        width={200}
+                        height={200}
+                        priority
+                      />
+                    </Card>
+                    <HoverCardContent
+                      className="w-80 rounded-md space-y-1 text-primary"
+                      album={record}
+                    />
+                  </HoverCardTrigger>
+                </HoverCard>
               </Link>
             );
           })}
