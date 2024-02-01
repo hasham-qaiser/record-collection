@@ -66,7 +66,7 @@ const Home = ({ records }: PageProps) => {
         <ModeToggle />
       </div>
 
-      <h1 className="text-2xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl text-center font-bold text-primary">
+      <h1 className="text-xl lg:text-2xl xl:text-3xl text-center font-bold text-primary">
         My Record Collection
       </h1>
       <h3 className="items-center flex flex-col text-lg text-primary">
@@ -84,7 +84,7 @@ const Home = ({ records }: PageProps) => {
               <Link key={i} href={`/${record.id}`}>
                 <HoverCard>
                   <HoverCardTrigger>
-                    <Card className="w-[250px] h-[250px] flex justify-center items-center">
+                    <Card className="flex justify-center items-center">
                       <Image
                         className="rounded-md"
                         src={record.basic_information.cover_image}
