@@ -30,7 +30,7 @@ interface PageProps {
 }
 
 const Home = ({ records }: PageProps) => {
-  const perPage = 16;
+  const perPage = 20;
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(records.length / perPage);
 
@@ -77,7 +77,7 @@ const Home = ({ records }: PageProps) => {
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7 }}
-          className="justify-between items-center grid gap-12 grid-cols-1 sm:mt-4 md:grid-cols-4  lg:grid-cols-4 xl:grid-cols-4"
+          className="justify-between items-center grid gap-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
         >
           {visibleRecords.map((record, i) => {
             return (
@@ -104,7 +104,7 @@ const Home = ({ records }: PageProps) => {
             );
           })}
         </motion.div>
-        <Pagination className="fixed bottom-2" aria-label="Page navigation">
+        <Pagination className="fixed bottom-1" aria-label="Page navigation">
           <PaginationPrevious
             onClick={handlePreviousPage}
             className="hover:cursor-pointer"
